@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int t,row,col;
+	char input;
+	cin>>t;
+	while(t--)
+	{
+		cin>>row>>col;
+		int current_max=0,count=0;
+		for(int i=0;i<row;i++)
+		{
+			count=0;
+			for(int j=0;j<col;j++)
+			{
+				cin>>input;
+				if(input=='#')
+				{
+					count++;
+				}
+				else
+				{
+					if(current_max<count)
+					{
+						current_max=count;
+					}
+					count=0;
+				}
+			}
+		}
+		cout<<current_max<<endl;
+	}
+}
