@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	int n;
+	long long flag=0;
+	cin>>n;
+	int a[n+1],b[n+1];
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	for(int i=0;i<n;i++)
+	{
+		cin>>b[i];
+	}
+	int &min=*min_element(a, a + n);
+	
+
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]==min)
+		{
+			continue;
+		}
+		if(a[i]!=min)
+		{
+			if(b[i]!=0&&((a[i]-min)%b[i])==0)
+			{
+				int ans=((a[i]-min)/b[i]);
+				flag=flag+ans;
+			}
+			else
+			{
+				flag=-1;
+				break;
+			}
+
+		}
+		else
+		{
+			flag=-1;
+			break;
+		}
+		
+	}
+	cout<<flag;
+
+}
